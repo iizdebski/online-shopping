@@ -1,0 +1,15 @@
+.idea/*
+out
+target
+*.iml
+log
+
+*.class
+
+*.war
+*.jar
+*.ear
+*.patch
+log
+
+/shoppingbackend/target/
