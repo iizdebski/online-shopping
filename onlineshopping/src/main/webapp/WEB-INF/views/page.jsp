@@ -26,16 +26,24 @@
     <!-- Bootstrap core CSS -->
     <link href="${css}/bootstrap.min.css" rel="stylesheet">
 
+    <!-- Bootstrap Cerulean Theme CSS -->
+    <link href="${css}/bootstrap-litera-theme.css" rel="stylesheet">
+
     <!-- Custom styles for this template -->
     <link href="${css}/myapp.css" rel="stylesheet">
 
 </head>
 
 <body>
+
+<div class="wrapper">
+
 <!-- Navigation -->
 <%@include file="./shared/navbar.jsp" %>
 
 <!-- Page Content -->
+
+<div class="content">
 <!-- Loading the home content -->
 <c:if test="${userClickHome == true }">
      <%@include file="home.jsp" %>
@@ -51,6 +59,8 @@
     <%@include file="contact.jsp" %>
 </c:if>
 
+</div>
+
 <!-- Footer comes here -->
 <%@include file="./shared/footer.jsp"%>
 
@@ -63,6 +73,7 @@
 <!-- Self coded javascript -->
 <script src="${js}/myapp.js"></script>
 
+</div>
 
 </body>
 
