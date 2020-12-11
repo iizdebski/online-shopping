@@ -19,6 +19,10 @@
 
     <title>Online Shopping - ${title}</title>
 
+    <script>
+        window.menu = '${title}';
+    </script>
+
     <!-- Bootstrap core CSS -->
     <link href="${css}/bootstrap.min.css" rel="stylesheet">
 
@@ -55,6 +59,10 @@
 
 <!-- Bootstrap core JavaScript -->
 <script src="${js}/bootstrap.bundle.min.js"></script>
+
+<!-- Self coded javascript -->
+<script src="${js}/myapp.js"></script>
+
 
 </body>
 
