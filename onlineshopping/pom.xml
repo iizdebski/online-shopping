@@ -22,6 +22,12 @@
 
   <dependencies>
 
+    <!-- Link backend project -->
+    <dependency>
+    <groupId>com.izdebski</groupId>
+    <artifactId>shoppingbackend</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    </dependency>
 
     <!--JUNIT-->
     <dependency>

@@ -2,10 +2,12 @@ package com.izdebski.shoppingbackend.daoimpl;
 
 import com.izdebski.shoppingbackend.dao.CategoryDAO;
 import com.izdebski.shoppingbackend.dto.Category;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Repository("categoryDAO")
 public class CategoryDAOImpl implements CategoryDAO {
 
     private static List<Category> categories = new ArrayList<>();
@@ -23,6 +25,7 @@ public class CategoryDAOImpl implements CategoryDAO {
         categories.add(category);
 
         // second category
+        category = new Category();
         category.setId(2);
         category.setName("Mobile");
         category.setDescription("This is some description for mobile");
@@ -31,6 +34,7 @@ public class CategoryDAOImpl implements CategoryDAO {
         categories.add(category);
 
         // third category
+        category = new Category();
         category.setId(3);
         category.setName("Laptop");
         category.setDescription("This is some description for laptop");
