@@ -1,4 +1,6 @@
-package com.izdebski.onlineshopping.config;
+package com.izdebski.shoppingbackend.config;
+
+import java.util.Properties;
 
 import javax.sql.DataSource;
 
@@ -12,8 +14,6 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-
-import java.util.Properties;
 
 @Configuration
 @ComponentScan(basePackages = {"com.izdebski.shoppingbackend.dto"})
@@ -32,6 +32,9 @@ public class HibernateConfig {
     private String DATABASE_USERNAME;
     @Value("${jdbc.password}")
     private String DATABASE_PASSWORD;
+
+    public HibernateConfig() {
+    }
 
     // datasource bean will be available
     @Bean("dataSource")
@@ -56,7 +59,7 @@ public class HibernateConfig {
         LocalSessionFactoryBuilder builder = new LocalSessionFactoryBuilder(dataSource);
 
         builder.addProperties(getHibernateProperties());
-        builder.scanPackages("com.izdebski.onlineshopping.dto");
+        builder.scanPackages("com.izdebski.shoppingbackend.dto");
 
         return builder.buildSessionFactory();
     }

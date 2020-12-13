@@ -1,6 +1,5 @@
 package com.izdebski.onlineshopping.controller;
 
-
 import com.izdebski.shoppingbackend.dao.CategoryDAO;
 import com.izdebski.shoppingbackend.dto.Category;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,8 +7,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-
-import java.util.Locale;
 
 @Controller
 public class PageController {
