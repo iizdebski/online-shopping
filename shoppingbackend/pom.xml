@@ -10,7 +10,6 @@
   <packaging>war</packaging>
 
   <name>shoppingbackend Maven Webapp</name>
-  <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
 
   <properties>
@@ -20,9 +19,18 @@
     <spring.version>4.3.6.RELEASE</spring.version>
     <jackson.version>2.9.8</jackson.version>
     <hibernate.version>5.2.7.Final</hibernate.version>
+    <mysql.version>8.0.21</mysql.version>
   </properties>
 
   <dependencies>
+
+    <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>${mysql.version}</version>
+      <scope>runtime</scope>
+    </dependency>
 
     <!-- JUNIT -->
     <dependency>

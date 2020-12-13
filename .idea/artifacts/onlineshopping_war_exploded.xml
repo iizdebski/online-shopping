@@ -17,6 +17,8 @@
           <element id="archive" name="shoppingbackend-1.0-SNAPSHOT.jar">
             <element id="module-output" name="shoppingbackend" />
           </element>
+          <element id="library" level="project" name="Maven: mysql:mysql-connector-java:8.0.21" />
+          <element id="library" level="project" name="Maven: com.google.protobuf:protobuf-java:3.11.4" />
           <element id="library" level="project" name="Maven: org.springframework:spring-orm:4.3.6.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-jdbc:4.3.6.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-tx:4.3.6.RELEASE" />
