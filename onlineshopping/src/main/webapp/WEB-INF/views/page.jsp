@@ -54,12 +54,12 @@
     <%@include file="about.jsp"%>
 </c:if>
 
-<!-- Load only when user clicks contact -->
+<!-- Load only when user clicks Contact -->
 <c:if test="${userClickContact == true }">
     <%@include file="contact.jsp"%>
 </c:if>
 
-<!-- Load only when user clicks contact -->
+<!-- Load only when user clicks Contact -->
 <c:if test="${userClickAllProducts == true or userClickCategoryProducts == true }">
      <%@include file="listProducts.jsp"%>
 </c:if>
@@ -73,7 +73,10 @@
 <script src="${js}/jquery.js"></script>
 
 <!-- Bootstrap core JavaScript -->
-<script src="${js}/bootstrap.bundle.min.js"></script>
+<script src="${js}/bootstrap.min.js"></script>
+
+<!-- DataTable Plugin-->
+    <script src="${js}/jquery.dataTables.min.js"></script>
 
 <!-- Self coded javascript -->
 <script src="${js}/myapp.js"></script>
