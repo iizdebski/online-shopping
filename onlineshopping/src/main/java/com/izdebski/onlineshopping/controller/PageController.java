@@ -1,7 +1,9 @@
 package com.izdebski.onlineshopping.controller;
 
 import com.izdebski.shoppingbackend.dao.CategoryDAO;
+import com.izdebski.shoppingbackend.dao.ProductDAO;
 import com.izdebski.shoppingbackend.dto.Category;
+import com.izdebski.shoppingbackend.dto.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,6 +15,9 @@ public class PageController {
 
     @Autowired
     private CategoryDAO categoryDAO;
+
+    @Autowired
+    private ProductDAO productDAO;
 
     @RequestMapping(value = {"/", "/home", "/index"})
     public ModelAndView index() {
@@ -76,5 +81,29 @@ public class PageController {
 
         mv.addObject("userClickCategoryProducts", true);
         return mv;
+    }
+
+    /*
+    Viewing a single product
+     */
+
+    @RequestMapping(value = "/show/{id}/product")
+    public ModelAndView showSingleProduct(@PathVariable int id) {
+
+        ModelAndView mv = new ModelAndView("page");
+
+        Product product = productDAO.get(id);
+
+        // update the view count
+        product.setViews(product.getViews() + 1);
+        productDAO.update(product);
+
+        mv.addObject("title", product.getName());
+        mv.addObject("product", product);
+
+        mv.addObject("userClickShowProduct", true);
+
+        return mv;
+
     }
 }

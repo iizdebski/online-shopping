@@ -13,6 +13,7 @@
 <head>
 
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -37,14 +38,12 @@
 </head>
 
 <body>
-
 <div class="wrapper">
 
 <!-- Navigation -->
 <%@include file="./shared/navbar.jsp" %>
 
 <!-- Page Content -->
-
 <div class="content">
 <!-- Loading the home content -->
 <c:if test="${userClickHome == true }">
@@ -65,6 +64,13 @@
 <c:if test="${userClickAllProducts == true or userClickCategoryProducts == true }">
      <%@include file="listProducts.jsp"%>
 </c:if>
+
+<!-- Load only when user clicks show product -->
+<c:if test="${userClickShowProduct == true }">
+      <%@include file="singleProduct.jsp"%>
+</c:if>
+
+
 
 </div>
 
