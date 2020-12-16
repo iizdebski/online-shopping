@@ -21,10 +21,8 @@
         <property name="suffix" value=".jsp" />
 
     </bean>
-
     <!-- Loading static resources -->
-        <mvc:annotation-driven />
-
+    <mvc:annotation-driven />
     <mvc:resources location="/assets/" mapping="/resources/**" />
 
 </beans>
