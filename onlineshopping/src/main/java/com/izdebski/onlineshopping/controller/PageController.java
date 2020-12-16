@@ -4,6 +4,8 @@ import com.izdebski.shoppingbackend.dao.CategoryDAO;
 import com.izdebski.shoppingbackend.dao.ProductDAO;
 import com.izdebski.shoppingbackend.dto.Category;
 import com.izdebski.shoppingbackend.dto.Product;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,6 +14,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class PageController {
+
+    private static final Logger logger = LoggerFactory.getLogger(PageController.class);
 
     @Autowired
     private CategoryDAO categoryDAO;
@@ -23,6 +27,9 @@ public class PageController {
     public ModelAndView index() {
         ModelAndView mv = new ModelAndView("page");
         mv.addObject("title", "Home");
+
+        logger.info("Inside Page Controller index method - INFO");
+        logger.info("Inside Page Controller index method - DEBUG");
 
         //passing the list of categories
         mv.addObject("categories", categoryDAO.list());
