@@ -9,50 +9,54 @@
                 </div>
                 <div class="panel-body">
                     <!-- FORM ELEMENTS -->
-                    <form class="form-horizontal">
+
+                    <%--@elvariable id="product" type="com"--%>
+                    <sf:form class="form-horizontal" modelAttribute="product">
 
                         <div class="form-group">
                             <label class="control-label col-md-4" for="name">Enter Product Name: </label>
                             <div class="col-md-8">
-                                <input type="text" name="name" id="name" placeholder="Product Name" class="form-control"/>
+                                <sf:input type="text" path="name" id="name" placeholder="Product Name" class="form-control"/>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label class="control-label col-md-4" for="brand">Enter Brand Name: </label>
                             <div class="col-md-8">
-                                <input type="text" name="brand" id="brand" placeholder="Brand Name" class="form-control"/>
+                                <sf:input type="text" path="brand" id="brand" placeholder="Brand Name" class="form-control"/>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label class="control-label col-md-4" for="description">Product Description: </label>
                             <div class="col-md-8">
-                                <textarea type="description" name="description" id="description" rows="3" placeholder="Write a description" class="form-control">
-                                </textarea>
+                                <sf:textarea path="description" name="description" id="description" rows="3" placeholder="Write a description of the product" class="form-control"/>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label class="control-label col-md-4" for="unitPrice">Enter Unit Price: </label>
                             <div class="col-md-8">
-                                <input type="number" name="unitPrice" id="unitPrice" placeholder="Unit Price In &#36" class="form-control"/>
+                                <sf:input type="number" path="unitPrice" id="unitPrice" placeholder="Unit Price In &#36" class="form-control"/>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label class="control-label col-md-4" for="quantity">Quantity Available: </label>
                             <div class="col-md-8">
-                                <input type="number" name="quantity" id="quantity" placeholder="Quantity Available" class="form-control"/>
+                                <sf:input type="number" path="quantity" id="quantity" placeholder="Quantity Available" class="form-control"/>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label class="control-label col-md-4" for="categoryId">Select Category: </label>
                             <div class="col-md-8">
-                                <select class="form-control" id="categoryId" name="categoryId">
-                                    <option value="1">Category One</option>
-                                    <option value="2">Category Two</option>
+                                <sf:select class="form-control" id="categoryId" path="categoryId"
+                                items="${categories}"
+                                itemLabel="name"
+                                itemValue="id"
+                                />
+
                                 </select>
                             </div>
                         </div>
@@ -61,14 +65,19 @@
                         <div class="form-group">
                             <div class="offset-md-6 col-md-8">
                                 <input type="submit" name="submit" id="submit" value="Submit" class="btn btn-primary"/>
-
-
+                                <!-- Hidden fields for products -->
+                                <sf:hidden path="id"/>
+                                <sf:hidden path="code"/>
+                                <sf:hidden path="supplierId"/>
+                                <sf:hidden path="active"/>
+                                <sf:hidden path="purchases"/>
+                                <sf:hidden path="views"/>
 
                             </div>
 
                         </div>
 
-                    </form>
+                    </sf:form>
 
                 </div>
 
