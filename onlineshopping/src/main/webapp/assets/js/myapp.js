@@ -61,7 +61,14 @@ $(function() {
                     }
                 },
                 {
-                    data: 'quantity'
+                    data: 'quantity',
+                    mRender: function (data, type, row) {
+
+                        if (data < 1) {
+                            return '<span style="color:red">Out of Stock!</span>';
+                        }
+                        return data;
+                    }
                 },
                 {
                     data: 'id',
@@ -76,11 +83,17 @@ $(function() {
                             + data
                             + '/product" class="btn btn-primary">View</a> &#160;';
 
-                        str += '<a href="'
-                            +window.contextRoot+
-                            '/cart/add'
-                            +data
-                            +'/product" class="btn btn-success">Add</a>';
+                        if (row.quantity < 1) {
+                            str += '<a href="javascript:void(0)" class="btn btn-success disabled">Add</a>'
+                        } else {
+
+                            str += '<a href="'
+                                +window.contextRoot+
+                                '/cart/add'
+                                +data
+                                +'/product" class="btn btn-success">Add</a>';
+
+                        }
 
                         return str;
                     }
