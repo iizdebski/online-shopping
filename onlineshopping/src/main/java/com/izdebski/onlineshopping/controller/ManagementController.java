@@ -1,5 +1,6 @@
 package com.izdebski.onlineshopping.controller;
 
+import com.izdebski.onlineshopping.util.FileUploadUtility;
 import com.izdebski.shoppingbackend.dao.CategoryDAO;
 import com.izdebski.shoppingbackend.dao.ProductDAO;
 import com.izdebski.shoppingbackend.dto.Category;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.util.List;
 
@@ -57,7 +59,11 @@ public class ManagementController {
 
     // handling product submission
     @RequestMapping(value = "/products", method = RequestMethod.POST)
-    public String handleProductSubmission(@Valid @ModelAttribute("product") Product mProduct, BindingResult results, Model model) {
+    public String handleProductSubmission(@Valid @ModelAttribute("product")
+                                          Product mProduct,
+                                          BindingResult results,
+                                          Model model,
+                                          HttpServletRequest request) {
 
         // check if there are any errors
         if(results.hasErrors()) {
@@ -73,6 +79,10 @@ public class ManagementController {
 
         // create a new product record
         productDAO.add(mProduct);
+
+        if(!mProduct.getFile().getOriginalFilename().equals("")) {
+            FileUploadUtility.uploadFile(request, mProduct.getFile(), mProduct.getCode());
+        }
 
         return "redirect:/manage/products?operation=product";
     }

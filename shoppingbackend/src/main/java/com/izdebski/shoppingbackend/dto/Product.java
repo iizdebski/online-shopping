@@ -2,6 +2,7 @@ package com.izdebski.shoppingbackend.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.validator.constraints.NotBlank;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
 import javax.validation.constraints.Min;
@@ -38,6 +39,9 @@ public class Product {
     private int supplierId;
     private int purchases;
     private int views;
+
+    @Transient
+    private MultipartFile file;
 
     // default constructor
     public Product() {
@@ -138,6 +142,14 @@ public class Product {
 
     public void setViews(int views) {
         this.views = views;
+    }
+
+    public MultipartFile getFile() {
+        return file;
+    }
+
+    public void setFile(MultipartFile file) {
+        this.file = file;
     }
 
     @Override
