@@ -38,11 +38,8 @@
                     >
 
                         <div class="form-group">
-
                             <label class="control-label col-md-4" for="name">Enter Product Name: </label>
-
                             <div class="col-md-8">
-
                                 <sf:input type="text" path="name" id="name" placeholder="Product Name" class="form-control"/>
                                 <sf:errors path="name" cssClass="help-block" element="em" />
 
