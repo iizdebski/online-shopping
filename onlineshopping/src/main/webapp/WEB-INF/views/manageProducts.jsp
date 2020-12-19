@@ -124,6 +124,7 @@
                       <th>Id</th>
                       <th>&#160;</th>
                       <th>Name</th>
+                      <th>Brand</th>
                       <th>Quantity</th>
                       <th>Unit Price</th>
                       <th>Active</th>
@@ -131,65 +132,11 @@
                   </tr>
               </thread>
 
-                  <tbody>
-                  <tr>
-                      <td>4</td>
-                      <td>
-
-                          <img class="adminDataTableImg"
-                          src="${contextRoot}/resources/images/PRDMNO123PQRX.jpg"
-                          alt="Macbook Pro"
-                          style="width:50px;height:50px;"
-                          />
-
-                      </td>
-                      <td>Macbook Pro</td>
-                      <td>5</td>
-                      <td>&#36; 48000/-</td>
-                      <td>
-                          <!-- toggle Switch -->
-                          <label class="switch">
-                              <input type="checkbox" checked="checked" value="4" />
-                              <div class="slider"></div>
-                          </label>
-                      </td>
-                      <td>
-
-                          <a href="${contextRoot}/manage/4/product" class="btn btn-warning">Edit</a>
-                      </td>
-                  </tr>
-                  </tbody>
-
-                  <tr>
-                      <td>4</td>
-                      <td>
-
-                          <img class="adminDataTableImg"
-                               src="${contextRoot}/resources/images/PRDMNO123PQRX.jpg"
-                               alt="Macbook Pro"
-                               style="width:50px;height:50px;"
-                          />
-                      </td>
-                      <td>Macbook Pro</td>
-                      <td>5</td>
-                      <td>&#36; 48000/-</td>
-                      <td>
-                          <!-- toggle Switch -->
-                          <label class="switch">
-                              <input type="checkbox" value="4" />
-                              <div class="slider"></div>
-                          </label>
-                      </td>
-                      <td>
-
-                          <a href="${contextRoot}/manage/4/product" class="btn btn-warning">Edit</a>
-                      </td>
-                  </tr>
-
               <tfoot>
               <tr>
                   <th>Id</th>
                   <th>&#160;</th>
+                  <th>Brand</th>
                   <th>Name</th>
                   <th>Quantity</th>
                   <th>Unit Price</th>
