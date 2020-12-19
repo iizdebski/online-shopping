@@ -1,6 +1,7 @@
 package com.izdebski.onlineshopping.controller;
 
 import com.izdebski.onlineshopping.util.FileUploadUtility;
+import com.izdebski.onlineshopping.validator.ProductValidator;
 import com.izdebski.shoppingbackend.dao.CategoryDAO;
 import com.izdebski.shoppingbackend.dao.ProductDAO;
 import com.izdebski.shoppingbackend.dto.Category;
@@ -64,6 +65,10 @@ public class ManagementController {
                                           BindingResult results,
                                           Model model,
                                           HttpServletRequest request) {
+
+        new ProductValidator().validate(mProduct, results);
+
+
 
         // check if there are any errors
         if(results.hasErrors()) {
