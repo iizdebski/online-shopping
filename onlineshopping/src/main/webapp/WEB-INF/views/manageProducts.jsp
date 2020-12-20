@@ -163,7 +163,7 @@
     <!-- Modal -->
     <div class="modal fade" id="myCategoryModal" role="dialog" tabindex="-1">
     <div class="modal-dialog" role="document">
-        <div class="model-content bg-light">
+        <div class="modal-content bg-light">
             <!-- Modal Header -->
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">
