@@ -95,12 +95,13 @@
 <!-- Bootbox -->
 <script src="${js}/bootbox.min.js"></script>
 
+<!-- jQuery validator -->
+<script src="${js}/jquery.validate.min.js"></script>
+
 <!-- Self coded javascript -->
 <script src="${js}/myapp.js"></script>
 
-
 </div>
-
 </body>
 
 </html>
