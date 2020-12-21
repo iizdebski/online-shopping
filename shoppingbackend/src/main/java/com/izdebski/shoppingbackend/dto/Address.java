@@ -8,8 +8,7 @@ public class Address {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(name = "user_id")
-    private int userId;
+
     @Column(name = "address_line_one")
     private String addressLineOne;
     @Column(name = "address_line_two")
@@ -28,14 +27,6 @@ public class Address {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public int getUserId() {
-        return userId;
-    }
-
-    public void setUserId(int userId) {
-        this.userId = userId;
     }
 
     public String getAddressLineOne() {
@@ -106,7 +97,6 @@ public class Address {
     public String toString() {
         return "Address{" +
                 "id=" + id +
-                ", userId=" + userId +
                 ", addressLineOne='" + addressLineOne + '\'' +
                 ", addressLineTwo='" + addressLineTwo + '\'' +
                 ", city='" + city + '\'' +
@@ -117,4 +107,16 @@ public class Address {
                 ", billing=" + billing +
                 '}';
     }
+    /*--------------------*/
+    @ManyToOne
+    private User user;
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+    /*--------------------*/
+
 }
