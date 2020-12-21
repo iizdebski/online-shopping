@@ -20,7 +20,6 @@ public class User {
     private String password;
     private boolean enabled = true;
 
-
     public int getId() {
         return id;
     }
@@ -98,4 +97,21 @@ public class User {
                 ", enabled=" + enabled +
                 '}';
     }
+
+
+    /*------------------------*/
+    /* OneToOne Bidirectional */
+
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    private Cart cart;
+
+    public Cart getCart() {
+        return cart;
+    }
+
+    public void setCart(Cart cart) {
+        this.cart = cart;
+    }
+
+    /*-----------------------*/
 }
