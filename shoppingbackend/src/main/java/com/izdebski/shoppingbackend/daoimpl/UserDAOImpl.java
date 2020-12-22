@@ -18,6 +18,11 @@ public class UserDAOImpl implements UserDAO {
     @Autowired
     private SessionFactory sessionFactory;
 
+    @Autowired
+    public UserDAOImpl(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
+    }
+
 
     @Override
     public boolean addUser(User user) {
@@ -69,7 +74,7 @@ public class UserDAOImpl implements UserDAO {
         }
     }
 
-    @Override
+    /*@Override
     public Address getBillingAddress(User user) {
         String selectQuery = "FROM Address WHERE user = :user AND billing = :billing";
 
@@ -85,11 +90,11 @@ public class UserDAOImpl implements UserDAO {
             ex.printStackTrace();
             return null;
         }
-    }
+    }*/
 
 
 
-    @Override
+    /*@Override
     public List<Address> listShippingAddresses(User user) {
         String selectQuery = "FROM Address WHERE user = :user AND shipping = :shipping";
 
@@ -105,5 +110,5 @@ public class UserDAOImpl implements UserDAO {
             ex.printStackTrace();
             return null;
         }
-    }
+    }*/
 }
