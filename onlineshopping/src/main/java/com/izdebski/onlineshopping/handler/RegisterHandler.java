@@ -1,12 +1,15 @@
 package com.izdebski.onlineshopping.handler;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.binding.message.MessageBuilder;
+import org.springframework.binding.message.MessageContext;
+import org.springframework.stereotype.Component;
+
 import com.izdebski.onlineshopping.model.RegisterModel;
 import com.izdebski.shoppingbackend.dao.UserDAO;
 import com.izdebski.shoppingbackend.dto.Address;
 import com.izdebski.shoppingbackend.dto.Cart;
 import com.izdebski.shoppingbackend.dto.User;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 @Component
 public class RegisterHandler {
@@ -17,7 +20,25 @@ public class RegisterHandler {
     public RegisterModel init() {
 
         return new RegisterModel();
+
     }
+
+    public String validateUser(User user, MessageContext error) {
+        String transitionValue = "success";
+        if(!user.getPassword().equals(user.getConfirmPassword())) {
+            error.addMessage(new MessageBuilder().error().source(
+                    "confirmPassword").defaultText("Password does not match confirm password!").build());
+            transitionValue = "failure";
+        }
+        if(userDAO.getByEmail(user.getEmail())!=null) {
+            error.addMessage(new MessageBuilder().error().source(
+                    "email").defaultText("Email address is already taken!").build());
+            transitionValue = "failure";
+        }
+
+        return transitionValue;
+    }
+
 
     public void addUser(RegisterModel registerModel, User user) {
         registerModel.setUser(user);
@@ -27,31 +48,29 @@ public class RegisterHandler {
         registerModel.setBilling(billing);
     }
 
-    public String saveAll(RegisterModel model) {
+    public String saveAll(RegisterModel registerModel) {
+
         String transitionValue = "success";
 
-        // fetch the user
-        User user = model.getUser();
-
+        User user = registerModel.getUser();
         if(user.getRole().equals("USER")) {
-
+            // create a new cart
             Cart cart = new Cart();
             cart.setUser(user);
             user.setCart(cart);
         }
 
         // save the user
+        userDAO.add(user);
 
-        userDAO.addUser(user);
 
-        // get the address
-        Address billing = model.getBilling();
+        // save the billing address
+        Address billing = registerModel.getBilling();
         billing.setUser(user);
         billing.setBilling(true);
-
-        // save the address
         userDAO.addAddress(billing);
 
-        return transitionValue;
+
+        return transitionValue ;
     }
 }
