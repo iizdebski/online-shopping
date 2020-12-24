@@ -282,7 +282,7 @@ $(function() {
 
 
     //-----------------------
-// validation code for category
+    // validation code for category
 
     var $categoryForm = $('#categoryForm');
     if($categoryForm.length) {
@@ -316,6 +316,59 @@ $(function() {
                 description: {
 
                     required: 'Please add a description for this category!'
+
+                }
+
+            },
+            errorElement: 'em',
+            errorPlacement: function(error, element) {
+                // add the class of help-block
+                error.addClass('help-block');
+                // add the error element after the input element
+                error.insertAfter(element);
+            }
+        });
+
+    }
+
+    //------------------------------
+
+    //-----------------------
+    // validation code for login
+
+    var $loginForm = $('#loginForm');
+
+    if($loginForm.length) {
+
+        $loginForm.validate({
+
+            rules : {
+
+                username : {
+
+                    required: true,
+                    email: true
+
+                },
+
+                password: {
+                    required: true
+                }
+
+            },
+
+            messages : {
+
+                username : {
+
+                    required: 'Please enter the username!',
+                    email: 'Please enter valid email address!'
+
+                },
+
+                password: {
+
+                    required: 'Please enter the password!'
 
                 }
 
