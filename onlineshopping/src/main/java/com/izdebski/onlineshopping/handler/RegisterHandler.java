@@ -3,6 +3,7 @@ package com.izdebski.onlineshopping.handler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.binding.message.MessageBuilder;
 import org.springframework.binding.message.MessageContext;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import com.izdebski.onlineshopping.model.RegisterModel;
@@ -17,10 +18,12 @@ public class RegisterHandler {
     @Autowired
     private UserDAO userDAO;
 
+    @Autowired
+    private BCryptPasswordEncoder passwordEncoder;
+
     public RegisterModel init() {
 
         return new RegisterModel();
-
     }
 
     public String validateUser(User user, MessageContext error) {
@@ -60,16 +63,17 @@ public class RegisterHandler {
             user.setCart(cart);
         }
 
+        // encode the password
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+
         // save the user
         userDAO.add(user);
-
 
         // save the billing address
         Address billing = registerModel.getBilling();
         billing.setUser(user);
         billing.setBilling(true);
         userDAO.addAddress(billing);
-
 
         return transitionValue ;
     }
