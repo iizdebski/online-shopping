@@ -48,6 +48,7 @@
             </div>
         </div>
     </nav>
+
     <!-- Page Content -->
     <div class="content">
 
@@ -55,23 +56,18 @@
             <%-- this will be displayed if the credentials are wrong --%>
             <c:if test="${not empty message}">
                 <div class="row">
-
-                    <div class="offset-md-3 col-md-6">
-
-                        <div class="alert alert-danger">${message}</div>
-
+                    <div class="offset-md-4 col-md-6">
+                        <div class="alert alert-danger">
+                                ${message}
+                        </div>
                     </div>
                 </div>
-
             </c:if>
 
 
             <div class="row">
-
                 <div class="offset-md-4 col-md-6">
-
                     <div class="panel panel-primary">
-
                         <div class="panel-heading">
                             <h4>Login</h4>
                         </div>
