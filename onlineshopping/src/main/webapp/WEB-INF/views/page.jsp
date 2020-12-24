@@ -19,6 +19,13 @@
     <meta name="author" content="">
     <meta name="_csrf" content="${_csrf.token}">
     <meta name="_csrf_header" content="${_csrf.headerName}">
+    <!-- Add this in your <head> tag -->
+    <link
+            rel="stylesheet"
+            href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
+            integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V"
+            crossorigin="anonymous"
+    />
 
     <title>Online Shopping - ${title}</title>
 
@@ -37,7 +44,7 @@
     <!-- Custom styles for this template -->
     <link href="${css}/myapp.css" rel="stylesheet">
 
-</head>
+</link>
 
 <body>
 <div class="wrapper">
