@@ -164,44 +164,48 @@
         </div>
 
         <div class="offset-md-2 col-md-8">
-            <div style="overflow:auto">
+            <div class="container-fluid">
+
+                <div class="table-responsive">
+                    <table id="adminProductsTable" class="table table-striped table-bordered">
+
+                        <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Image</th>
+                            <th>Name</th>
+                            <th>Brand</th>
+                            <th>Quantity</th>
+                            <th>Unit Price</th>
+                            <th>Active</th>
+                            <th>Edit</th>
+                        </tr>
+                        </thead>
+
+
+
+
+                        <tfoot>
+                        <tr>
+                            <th>Id</th>
+                            <th>Image</th>
+                            <th>Brand</th>
+                            <th>Name</th>
+                            <th>Quantity</th>
+                            <th>Unit Price</th>
+                            <th>Active</th>
+                            <th>Edit</th>
+                        </tr>
+                        </tfoot>
+
+
+                    </table>
+
+                </div>
+            </div>
 
                 <!-- Products table for Admin -->
-                <table id="adminProductsTable" class="table table-striped table-bordered">
 
-                    <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>Image</th>
-                        <th>Name</th>
-                        <th>Brand</th>
-                        <th>Quantity</th>
-                        <th>Unit Price</th>
-                        <th>Active</th>
-                        <th>Edit</th>
-                    </tr>
-                    </thead>
-
-
-
-
-                    <tfoot>
-                    <tr>
-                        <th>Id</th>
-                        <th>Image</th>
-                        <th>Brand</th>
-                        <th>Name</th>
-                        <th>Quantity</th>
-                        <th>Unit Price</th>
-                        <th>Active</th>
-                        <th>Edit</th>
-                    </tr>
-                    </tfoot>
-
-
-                </table>
-
-            </div>
         </div>
 
 
