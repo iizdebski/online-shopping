@@ -80,21 +80,6 @@ public class UserDAOImpl implements UserDAO {
     }
 
 
-
-
-    @Override
-    public boolean updateCart(Cart cart) {
-        try {
-            sessionFactory.getCurrentSession().update(cart);
-            return true;
-        }
-        catch(Exception ex) {
-            return false;
-        }
-    }
-
-
-
     @Override
     public List<Address> listAddresses(User user, boolean isBilling) {
         String selectQuery = "FROM Address WHERE user = :user AND billing = :isBilling";
