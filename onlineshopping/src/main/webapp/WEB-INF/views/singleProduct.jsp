@@ -56,24 +56,37 @@
             </c:choose>
 
 
+            <security:authorize access="hasAuthority('USER')">
+
             <c:choose>
 
                 <c:when test="${product.quantity < 1}">
 
                     <a href="javascript:void(0)" class="btn btn-warning disabled"><strike>
-                        <span class="glyphicon glyphicon-shopping-cart"></span> Add to Cart</strike></a>
+                        <span class="fas fa-shopping-cart"></span> Add to Cart</strike></a>
 
                 </c:when>
                 <c:otherwise>
 
-                    <a href="${contextRoot}/cart/add/${product.id}/product" class="btn btn-warning">Add to Cart</a>
+                    <a href="${contextRoot}/cart/add/${product.id}/product"
+                       class="btn btn-success">
+                    <span class="fas fa-shopping-cart"></span> Add to Cart</a>
 
                 </c:otherwise>
 
             </c:choose>
+            </security:authorize>
+
+            <security:authorize access="hasAuthority('ADMIN')">
+
+                <a href="${contextRoot}/manage/${product.id}/product"
+                class="btn btn-warning">
+                <span class="fas fa-edit"></span> Edit</a>
+
+            </security:authorize>
 
 
-            <a href="${contextRoot}/show/all/products" class="btn btn-success">Back</a>
+            <a href="${contextRoot}/show/all/products" class="btn btn-primary">Back</a>
 
         </div>
 

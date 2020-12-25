@@ -1,3 +1,4 @@
+<%@taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
     <div class="container">
@@ -22,9 +23,11 @@
                     <a class="nav-link" href="${contextRoot}/show/all/products">View Products</a>
                 </li>
 
-                <li class="nav-item" id="manageProducts">
+                <security:authorize access="hasAuthority('ADMIN')">
+                    <li class="nav-item" id="manageProducts">
                     <a class="nav-link" href="${contextRoot}/manage/products">Manage Products</a>
-                </li>
+                    </li>
+                </security:authorize>
 
                 <li class="nav-item" id="about">
                     <a class="nav-link" href="${contextRoot}/about">About</a>
@@ -38,42 +41,53 @@
         </div>
 
         <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="nav navbar-nav navbar-right ml-auto">
+            <ul class="nav navbar-nav navbar-right ml-auto">
 
-                <li class="nav-item" id="register">
-                    <a class="nav-link" href="${contextRoot}/register">Sign Up</a>
-                </li>
+                <security:authorize access="isAnonymous()">
+                    <li class="nav-item" id="register">
+                        <a class="nav-link" href="${contextRoot}/register">Sign Up</a>
+                    </li>
 
-                <li class="nav-item" id="login">
-                    <a class="nav-link" href="${contextRoot}/login">Login</a>
-                </li>
+                    <li class="nav-item" id="login">
+                        <a class="nav-link" href="${contextRoot}/login">Login</a>
+                    </li>
+                </security:authorize>
 
-                 <li class="nav-item dropdown ml-auto" id="userCart" >
+                <security:authorize access="isAuthenticated()">
+                    <li class="nav-item dropdown ml-auto" id="userCart">
 
-                     <a class="nav-link dropdown-toggle"
-                        id="dropdownMenu1"
-                        data-toggle="dropdown">
-                        ${userModel.fullName}
-                     <span class="caret"></span>
-                     </a>
+                        <a class="nav-link dropdown-toggle"
+                           id="dropdownMenu1"
+                           data-toggle="dropdown">
+                                ${userModel.fullName}
+                            <span class="caret"></span>
+                        </a>
 
-                     <ul class="dropdown-menu ml-auto text-center">
-                         <li id="cart">&#160;
-                             <a href="${contextRoot}/cart">
-                                 <span class="fas fa-shopping-cart">${userModel.cart.cartLines}</span>
-                                 - &#36; ${userModel.cart.grandTotal}
-                             </a>
-                         </li>
-                         <li class="divider" role="separator"></li> <hr />
+                        <ul class="dropdown-menu ml-auto text-center">
+                            <security:authorize access="hasAuthority('USER')">
+                                <li id="cart">&#160;
+                                    <a href="${contextRoot}/cart">
+                                        <span class="fas fa-shopping-cart">${userModel.cart.cartLines}</span>
+                                        - &#36; ${userModel.cart.grandTotal}
+                                    </a>
+                                </li>
+                                <li class="divider" role="separator"></li>
+                                <hr/>
 
-                         <li>
-                             <a href="${contextRoot}/logout">Logout</a>
-                         </li>
-                     </ul>
-                 </li>
-
+                            </security:authorize>
+                            <li>
+                                <a href="${contextRoot}/logout">Logout</a>
+                            </li>
+                        </ul>
+                    </li>
+                </security:authorize>
             </ul>
         </div>
 
     </div>
 </nav>
+<script>
+
+    window.userRole = '${userModel.role}';
+
+    </script>

@@ -102,24 +102,30 @@ $(function() {
                                 + window.contextRoot
                                 + '/show/'
                                 + data
-                                + '/product" class="btn btn-primary">View</a> &#160;';
+                                + '/product" class="btn btn-primary"><i class="fas fa-eye"></i></a> &#160;';
 
                             if (row.quantity < 1) {
-                                str += '<a href="javascript:void(0)" class="btn btn-success disabled">Add</a>'
+                                str += '<a href="javascript:void(0)" class="btn btn-success disabled"><i class="fas fa-shopping-cart"></i></a>'
                             } else {
 
-                                str += '<a href="'
-                                    + window.contextRoot +
-                                    '/cart/add'
-                                    + data
-                                    + '/product" class="btn btn-success">Add</a>';
+                                if(userRole == 'ADMIN') {
+                                    str += '<a href="'
+                                        + window.contextRoot +
+                                        '/manage/'
+                                        + data +
+                                        '/product" class="btn btn-warning"><i class="fas fa-edit"></i></a>';
+                                } else {
+                                    str += '<a href="'
+                                        + window.contextRoot +
+                                        '/cart/add'
+                                        + data
+                                        + '/product" class="btn btn-success"><i class="fas fa-shopping-cart"></i></a>';
+                                }
                             }
-
                             return str;
                         }
                     }
                 ]
-
             });
     }
 
@@ -245,7 +251,7 @@ $(function() {
 
                             var str = '';
 
-                            str += '<a href="'+window.contextRoot+'/manage/'+data+'/product" class="btn btn-warning">Edit</a>';
+                            str += '<a href="'+window.contextRoot+'/manage/'+data+'/product" class="btn btn-warning"><span class="fas fa-edit"></span></a>';
 
                             return str;
                         }
