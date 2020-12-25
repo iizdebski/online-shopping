@@ -66,7 +66,8 @@
                         <ul class="dropdown-menu ml-auto text-center">
                             <security:authorize access="hasAuthority('USER')">
                                 <li id="cart">&#160;
-                                    <a href="${contextRoot}/cart">
+                                    <a href="${contextRoot}/cart/show">
+
                                         <span class="fas fa-shopping-cart">${userModel.cart.cartLines}</span>
                                         - &#36; ${userModel.cart.grandTotal}
                                     </a>
