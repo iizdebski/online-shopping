@@ -67,7 +67,7 @@
                 </tbody>
                 <tfoot>
                 <tr>
-                    <td><a href="${contextRoot}/show/all/products" class="btn btn-warning"><span class="glyphicon glyphicon-chevron-left"></span> Continue Shopping</a></td>
+                    <td><a href="${contextRoot}/show/all/products" class="btn btn-warning"><i class="fas fa-chevron-left"></i> Continue Shopping</a></td>
                     <td colspan="2" class="hidden-xs"></td>
                     <td class="hidden-xs text-center"><strong>Total &#36; ${userModel.cart.grandTotal}</strong></td>
                     <td><a href="#" class="btn btn-success btn-block">Checkout </a></td>
