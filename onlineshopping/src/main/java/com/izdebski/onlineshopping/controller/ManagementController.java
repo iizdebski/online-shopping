@@ -73,7 +73,7 @@ public class ManagementController {
     // handling product submission
     @RequestMapping(value = "/products", method = RequestMethod.POST)
     public String handleProductSubmission(@Valid @ModelAttribute("product")
-                                          Product mProduct,
+                                                  Product mProduct,
                                           BindingResult results,
                                           Model model,
                                           HttpServletRequest request) {

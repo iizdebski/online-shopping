@@ -5,8 +5,9 @@
         <div class="alert alert-info">
 
             <h3 class="text-center">
-                ${message}
+                    ${message}
             </h3>
+
         </div>
 
     </c:if>

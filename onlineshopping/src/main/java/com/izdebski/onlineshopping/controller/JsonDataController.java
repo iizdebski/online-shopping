@@ -14,8 +14,12 @@ import java.util.List;
 @RequestMapping("/json/data")
 public class JsonDataController {
 
+    private final ProductDAO productDAO;
+
     @Autowired
-    private ProductDAO productDAO;
+    public JsonDataController(ProductDAO productDAO) {
+        this.productDAO = productDAO;
+    }
 
     @RequestMapping("/all/products")
     @ResponseBody
@@ -27,13 +31,15 @@ public class JsonDataController {
     @RequestMapping("/admin/all/products")
     @ResponseBody
     public List<Product> getAllProductsForAdmin() {
+
         return productDAO.list();
     }
 
     @RequestMapping("/category/{id}/products")
     @ResponseBody
     public List<Product> getProductsByCategory(@PathVariable int id) {
-
         return productDAO.listActiveProductsByCategory(id);
     }
+
 }
+

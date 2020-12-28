@@ -18,12 +18,11 @@ public class GlobalDefaultExceptionHandler {
 
         mv.addObject("errorTitle", "The page is not constructed!");
 
-        mv.addObject("errorDescription", "The page you are looking for is not available!");
+        mv.addObject("errorDescription", "The page you are looking for is not available now!");
 
         mv.addObject("title", "404 Error Page");
 
         return mv;
-
     }
 
     @ExceptionHandler(ProductNotFoundException.class)
@@ -38,7 +37,6 @@ public class GlobalDefaultExceptionHandler {
         mv.addObject("title", "Product Unavailable");
 
         return mv;
-
     }
 
     @ExceptionHandler(Exception.class)
@@ -46,9 +44,10 @@ public class GlobalDefaultExceptionHandler {
 
         ModelAndView mv = new ModelAndView("error");
 
-        mv.addObject("errorTitle", "Contact Your Administrator!");
+        mv.addObject("errorTitle", "Contact Your Administrator!!");
 
-        /* only for debugging your application */
+
+        /* only for debugging your application*/
         StringWriter sw = new StringWriter();
         PrintWriter pw = new PrintWriter(sw);
 
@@ -59,6 +58,5 @@ public class GlobalDefaultExceptionHandler {
         mv.addObject("title", "Error");
 
         return mv;
-
     }
 }
