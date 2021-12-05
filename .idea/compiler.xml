@@ -11,7 +11,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="onlineshopping" target="1.8" />
-      <module name="shoppingbackend" target="1.7" />
+      <module name="shoppingbackend" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
