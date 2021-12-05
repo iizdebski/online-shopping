@@ -1,4 +1,5 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+         pageEncoding="ISO-8859-1"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
@@ -27,7 +28,7 @@
     <link href="${css}/myapp.css" rel="stylesheet">
 
 
-    <title>Online Shopping - ${title}</title>
+    <title>Online Shopping - FlowException</title>
 
 </head>
 
@@ -51,17 +52,23 @@
 
             <div class="row">
 
-                <div class="col-12">
+                <div class="col-xs-12">
 
 
                     <div class="jumbotron">
 
-                        <h1>${errorTitle}</h1>
+                        <h1>Please contact your administrator!</h1>
                         <hr/>
 
                         <blockquote style="word-wrap:break-word">
 
-                            ${errorDescription}
+                            ${flowExecutionException}
+
+                        </blockquote>
+
+                        <blockquote style="word-wrap:break-word">
+
+                            ${rootCauseException}
 
                         </blockquote>
 
@@ -77,7 +84,7 @@
     </div>
 
 
-    <%@include file="./shared/footer.jsp" %>
+    <%@include file="../../shared/footer.jsp" %>
 
 </div>
 

@@ -1,8 +1,8 @@
 package com.izdebski.shoppingbackend.dao;
 
-import com.izdebski.shoppingbackend.dto.Category;
-
 import java.util.List;
+
+import com.izdebski.shoppingbackend.dto.Category;
 
 public interface CategoryDAO {
 
@@ -11,5 +11,6 @@ public interface CategoryDAO {
     boolean add(Category category);
     boolean update(Category category);
     boolean delete(Category category);
+
 
 }

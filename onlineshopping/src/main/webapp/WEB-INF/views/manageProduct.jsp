@@ -204,7 +204,7 @@
                 </div>
             </div>
 
-                <!-- Products table for Admin -->
+            <!-- Products table for Admin -->
 
         </div>
 

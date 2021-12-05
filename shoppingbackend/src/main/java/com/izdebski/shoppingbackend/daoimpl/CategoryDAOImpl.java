@@ -2,13 +2,14 @@ package com.izdebski.shoppingbackend.daoimpl;
 
 import java.util.List;
 
-import com.izdebski.shoppingbackend.dao.CategoryDAO;
-import com.izdebski.shoppingbackend.dto.Category;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+
+import com.izdebski.shoppingbackend.dao.CategoryDAO;
+import com.izdebski.shoppingbackend.dto.Category;
 
 @Repository("categoryDAO")
 @Transactional
@@ -84,6 +85,4 @@ public class CategoryDAOImpl implements CategoryDAO {
             return false;
         }
     }
-
 }
-

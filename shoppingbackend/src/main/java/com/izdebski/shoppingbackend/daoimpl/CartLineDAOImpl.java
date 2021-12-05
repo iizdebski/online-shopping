@@ -1,15 +1,16 @@
 package com.izdebski.shoppingbackend.daoimpl;
 
+import java.util.List;
 
-import com.izdebski.shoppingbackend.dao.CartLineDAO;
-import com.izdebski.shoppingbackend.dto.Cart;
-import com.izdebski.shoppingbackend.dto.CartLine;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
+import com.izdebski.shoppingbackend.dao.CartLineDAO;
+import com.izdebski.shoppingbackend.dto.Cart;
+import com.izdebski.shoppingbackend.dto.CartLine;
+import com.izdebski.shoppingbackend.dto.OrderDetail;
 
 @Repository("cartLineDAO")
 @Transactional
@@ -19,8 +20,20 @@ public class CartLineDAOImpl implements CartLineDAO {
     private SessionFactory sessionFactory;
 
     @Override
-    public CartLine get(int id) {
-        return sessionFactory.getCurrentSession().get(CartLine.class, id);
+    public CartLine getByCartAndProduct(int cartId, int productId) {
+        String query = "FROM CartLine WHERE cartId = :cartId AND product.id = :productId";
+        try {
+
+            return sessionFactory.getCurrentSession()
+                    .createQuery(query,CartLine.class)
+                    .setParameter("cartId", cartId)
+                    .setParameter("productId", productId)
+                    .getSingleResult();
+
+        }catch(Exception ex) {
+            return null;
+        }
+
     }
 
     @Override
@@ -29,7 +42,7 @@ public class CartLineDAOImpl implements CartLineDAO {
             sessionFactory.getCurrentSession().persist(cartLine);
             return true;
         }
-        catch (Exception ex) {
+        catch(Exception ex) {
             ex.printStackTrace();
             return false;
         }
@@ -41,21 +54,22 @@ public class CartLineDAOImpl implements CartLineDAO {
             sessionFactory.getCurrentSession().update(cartLine);
             return true;
         }
-        catch (Exception ex) {
+        catch(Exception ex) {
             ex.printStackTrace();
             return false;
         }
     }
 
     @Override
-    public boolean delete(CartLine cartLine) {
+    public boolean remove(CartLine cartLine) {
         try {
             sessionFactory.getCurrentSession().delete(cartLine);
             return true;
-        } catch (Exception ex) {
+        }catch(Exception ex) {
             return false;
         }
     }
+
 
     @Override
     public List<CartLine> list(int cartId) {
@@ -64,6 +78,22 @@ public class CartLineDAOImpl implements CartLineDAO {
                 .createQuery(query, CartLine.class)
                 .setParameter("cartId", cartId)
                 .getResultList();
+    }
+
+    @Override
+    public CartLine get(int id) {
+        return sessionFactory.getCurrentSession().get(CartLine.class, Integer.valueOf(id));
+    }
+
+    @Override
+    public boolean updateCart(Cart cart) {
+        try {
+            sessionFactory.getCurrentSession().update(cart);
+            return true;
+        }
+        catch(Exception ex) {
+            return false;
+        }
     }
 
     @Override
@@ -77,28 +107,12 @@ public class CartLineDAOImpl implements CartLineDAO {
     }
 
     @Override
-    public CartLine getByCartAndProduct(int cartId, int productId) {
-        String query = "FROM CartLine WHERE cartId = :cartId AND product.id = :productId";
+    public boolean addOrderDetail(OrderDetail orderDetail) {
         try {
-            return sessionFactory.getCurrentSession()
-                    .createQuery(query, CartLine.class)
-                    .setParameter("cartId", cartId)
-                    .setParameter("productId", productId)
-                    .getSingleResult();
-        } catch (Exception ex) {
-            return null;
-        }
-    }
-
-    // related to the cart
-    @Override
-    public boolean updateCart(Cart cart) {
-        try {
-            sessionFactory.getCurrentSession().update(cart);
+            sessionFactory.getCurrentSession().persist(orderDetail);
             return true;
         }
         catch(Exception ex) {
-            ex.printStackTrace();
             return false;
         }
     }

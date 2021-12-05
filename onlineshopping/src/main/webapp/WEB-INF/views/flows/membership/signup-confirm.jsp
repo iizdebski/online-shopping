@@ -1,6 +1,4 @@
-<%--@elvariable id="registerModel" type="net.kzn.onlineshopping.model.RegisterModel"--%>
-<%@include file="../shared/flows-header.jsp" %>
-
+<%@include file="../flows-shared/header.jsp" %>
 <div class="container">
 
     <div class="row">
@@ -20,7 +18,7 @@
                         <h4>Contact : <strong>${registerModel.user.contactNumber}</strong></h4>
                         <h4>Role : <strong>${registerModel.user.role}</strong></h4>
                         <p>
-                            <a href="${flowExecutionUrl}&_eventId_start" class="btn btn-primary">Edit</a>
+                            <a href="${flowExecutionUrl}&_eventId_personal" class="btn btn-primary">Edit</a>
                         </p>
                     </div>
                 </div>
@@ -72,5 +70,4 @@
     </div>
 
 </div>
-
-<%@include file="../shared/flows-footer.jsp" %>
+<%@include file="../flows-shared/footer.jsp" %>

@@ -1,15 +1,16 @@
 package com.izdebski.onlineshopping.exception;
 
+import java.io.PrintWriter;
+import java.io.StringWriter;
+
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.NoHandlerFoundException;
 
-import java.io.PrintWriter;
-import java.io.StringWriter;
-
 @ControllerAdvice
 public class GlobalDefaultExceptionHandler {
+
 
     @ExceptionHandler(NoHandlerFoundException.class)
     public ModelAndView handlerNoHandlerFoundException() {
@@ -25,6 +26,7 @@ public class GlobalDefaultExceptionHandler {
         return mv;
     }
 
+
     @ExceptionHandler(ProductNotFoundException.class)
     public ModelAndView handlerProductNotFoundException() {
 
@@ -38,6 +40,7 @@ public class GlobalDefaultExceptionHandler {
 
         return mv;
     }
+
 
     @ExceptionHandler(Exception.class)
     public ModelAndView handlerException(Exception ex) {
