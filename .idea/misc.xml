@@ -8,6 +8,7 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/shoppingbackend/pom.xml" />
+        <option value="$PROJECT_DIR$/shoppingfrontend/pom.xml" />
       </list>
     </option>
   </component>
