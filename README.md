@@ -17,37 +17,33 @@
 * **JQuery**
 
 <p align = "center">
-<img src="https://github.com/iizdebski/MicroservicesSpringCloud/blob/master/images/micro_01.JPG">
+<img src="https://github.com/iizdebski/online-shopping/blob/main/shoppingbackend/images/01_music_shop.png">
 </p>
 
 <p align = "center">
-<img src="https://github.com/iizdebski/MicroservicesSpringCloud/blob/master/images/micro_02.JPG">
+<img src="https://github.com/iizdebski/online-shopping/blob/main/shoppingbackend/images/02_music_shop.png">
 </p>
 
 <p align = "center">
-<img src="https://github.com/iizdebski/MicroservicesSpringCloud/blob/master/images/micro_03.JPG"> 
+<img src="https://github.com/iizdebski/online-shopping/blob/main/shoppingbackend/images/03_music_shop.png"> 
 </p>
 
 <p align = "center">
-<img src="https://github.com/iizdebski/MicroservicesSpringCloud/blob/master/images/micro_04.JPG">
+<img src="https://github.com/iizdebski/online-shopping/blob/main/shoppingbackend/images/04_music_shop.png">
 </p>
 
 <p align = "center">
-<img src="https://github.com/iizdebski/MicroservicesSpringCloud/blob/master/images/micro_05.JPG">
+<img src="https://github.com/iizdebski/online-shopping/blob/main/shoppingbackend/images/05_music_shop.png">
 </p>
 
 <p align = "center">
-<img src="https://github.com/iizdebski/MicroservicesSpringCloud/blob/master/images/micro_06.JPG">
+<img src="https://github.com/iizdebski/online-shopping/blob/main/shoppingbackend/images/06_music_shop.png">
 </p>
 
 <p align = "center">
-<img src="https://github.com/iizdebski/MicroservicesSpringCloud/blob/master/images/micro_07.JPG"> 
+<img src="https://github.com/iizdebski/online-shopping/blob/main/shoppingbackend/images/07_music_shop.png"> 
 </p>
 
 <p align = "center">
-<img src="https://github.com/iizdebski/MicroservicesSpringCloud/blob/master/images/micro_08.JPG">
-</p>
-
-<p align = "center">
-<img src="https://github.com/iizdebski/MicroservicesSpringCloud/blob/master/images/micro_09.JPG">
+<img src="https://github.com/iizdebski/online-shopping/blob/main/shoppingbackend/images/08_music_shop.png">
 </p>
